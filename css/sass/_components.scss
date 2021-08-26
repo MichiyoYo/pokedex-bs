@@ -30,10 +30,13 @@
   grid-row-gap: 10px;
   padding: 20px;
   max-height: 700px;
+  min-height: 700px;
   overflow: scroll;
-
+  @include responsive-for("small") {
+    min-height: 500px;
+    max-height: 500px;
+  }
   li {
-    flex: 1 1 auto;
     .pokemon-btn {
       width: 100%;
       background: #fff;
