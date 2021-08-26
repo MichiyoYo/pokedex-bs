@@ -1002,24 +1002,48 @@ main .list-group .list-group-item .btn {
   width: 100%;
 }
 
-main .modal .modal-header .close {
+main .modal .modal-content {
+  background: #9857ff;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+main .modal .modal-content .modal-header {
+  background: #9857ff;
+  border-bottom: 0;
+  border-top-left-radius: 50px;
+}
+
+main .modal .modal-content .modal-header .modal-title {
+  padding: 0 28px;
+  font-size: 40px;
+}
+
+main .modal .modal-content .modal-header .close {
   background: transparent;
+  color: #fff;
   border: 0;
   padding: 10px 20px;
 }
 
-main .modal .modal-body .pokemon-img {
+main .modal .modal-content .modal-body {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+main .modal .modal-content .modal-body .pokemon-img {
   max-width: 50%;
   padding: 20px;
 }
 
-main .modal .modal-body .pokemon-details h3,
-main .modal .modal-body .pokemon-details p,
-main .modal .modal-body .pokemon-details li {
+main .modal .modal-content .modal-body .pokemon-details h3,
+main .modal .modal-content .modal-body .pokemon-details p,
+main .modal .modal-content .modal-body .pokemon-details li {
   color: #504f4f;
 }
 
-main .modal .modal-body .pokemon-details li b {
+main .modal .modal-content .modal-body .pokemon-details li b {
   font-weight: 800;
 }
 

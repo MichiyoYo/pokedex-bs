@@ -78,27 +78,43 @@ main {
     }
   }
   .modal {
-    .modal-header {
-      .close {
-        background: transparent;
-        border: 0;
-        padding: 10px 20px;
-      }
-    }
-    .modal-body {
-      .pokemon-img {
-        max-width: 50%;
-        padding: 20px;
-      }
-      .pokemon-details {
-        h3,
-        p,
-        li {
-          color: $text-modal;
+    .modal-content {
+      background: #9857ff;
+      border-top-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      .modal-header {
+        background: #9857ff;
+        border-bottom: 0;
+        border-top-left-radius: 50px;
+        .modal-title {
+          padding: 0 28px;
+          font-size: 40px;
         }
-        li {
-          b {
-            font-weight: 800;
+        .close {
+          background: transparent;
+          color: #fff;
+          border: 0;
+          padding: 10px 20px;
+        }
+      }
+      .modal-body {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        .pokemon-img {
+          max-width: 50%;
+          padding: 20px;
+        }
+        .pokemon-details {
+          h3,
+          p,
+          li {
+            color: $text-modal;
+          }
+          li {
+            b {
+              font-weight: 800;
+            }
           }
         }
       }
