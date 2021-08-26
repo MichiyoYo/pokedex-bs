@@ -127,49 +127,47 @@ let pokemonRepository = (function () {
 
   function populateModal(pokemonToShow) {
     //populating name
-    let pokemonName = modalContainer.querySelector(".pokemon-name");
-    pokemonName.innerText = pokemonToShow.name;
+    let pokemonName = $("#pokemon-title");
+    pokemonName.text(pokemonToShow.name);
 
     //populating types
-    let pokemonTypes = modalContainer.querySelector(".types");
+    let pokemonTypes = $(".types");
     //remove previous types if any
-    pokemonTypes.innerHTML = "";
+    pokemonTypes.text("");
     pokemonToShow.types.forEach((type) => {
       console.log(type.type.name);
-      let listItem = document.createElement("li");
-      listItem.innerText = type.type.name;
-      pokemonTypes.appendChild(listItem);
+      let listItem = $(`<li>${type.type.name}</li>`);
+      pokemonTypes.append(listItem);
     });
 
     //populating img
-    let pokemonImage = modalContainer.querySelector(".pokemon-img");
-    pokemonImage.setAttribute("src", pokemonToShow.artworkUrl);
-    pokemonImage.setAttribute(
+    let pokemonImage = $(".pokemon-img");
+    pokemonImage.attr("src", pokemonToShow.artworkUrl);
+    pokemonImage.attr(
       "alt",
       `Official artwork representing ${pokemonToShow.name}`
     );
 
     //populating height and weight
-    let pokemonHeight = modalContainer.querySelector(".pokemon-height");
-    let pokemonWeight = modalContainer.querySelector(".pokemon-weight");
-    pokemonHeight.innerText = pokemonToShow.height;
-    pokemonWeight.innerText = pokemonToShow.weight;
+    let pokemonHeight = $(".pokemon-height");
+    let pokemonWeight = $(".pokemon-weight");
+    pokemonHeight.text(pokemonToShow.height);
+    pokemonWeight.text(pokemonToShow.weight);
 
     //populating abilities
-    let abilityList = document.querySelector(".ability-list");
-    abilityList.innerHTML = "";
+    let abilityList = $(".ability-list");
+    abilityList.html("");
 
     pokemonToShow.abilities.forEach((ability) => {
       console.log(ability.ability.name);
-      let abilityItem = document.createElement("li");
-      abilityItem.innerText = ability.ability.name;
-      abilityList.appendChild(abilityItem);
+      let abilityItem = $(`<li>${ability.ability.name}</li>`);
+      abilityList.append(abilityItem);
     });
 
-    if (modalContainer.classList.contains("is-not-visible")) {
-      modalContainer.classList.remove("is-not-visible");
+    if (modalContainer.hasClass("is-not-visible")) {
+      modalContainer.removeClass("is-not-visible");
     }
-    modalContainer.classList.add("is-visible");
+    modalContainer.addClass("is-visible");
   }
 
   //event listeners

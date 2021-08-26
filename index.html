@@ -100,13 +100,13 @@
             id="modal-container"
             tabindex="-1"
             role="dialog"
-            aria-labelledby="exampleModalLabel"
+            aria-labelledby="pokemon-title"
             aria-hidden="true"
           >
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Bulbasaur</h5>
+                  <h5 class="modal-title" id="pokemon-title">Bulbasaur</h5>
                   <button
                     type="button"
                     class="modal-close close"
@@ -115,8 +115,32 @@
                   >
                     <span aria-hidden="true">✖</span>
                   </button>
+                  <ul class="types"></ul>
                 </div>
-                <div class="modal-body">Bulbasaur details</div>
+                <div class="modal-body">
+                  <img
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+                    alt="Bulbasaur"
+                    class="pokemon-img img-fluid"
+                  />
+                  <div class="pokemon-details">
+                    <div class="base-stats">
+                      <h3>Base Stats</h3>
+                      <ul class="biometrics">
+                        <li>
+                          <b>Height:</b> <span class="pokemon-height"></span>m
+                        </li>
+                        <li>
+                          <b>Weight:</b> <span class="pokemon-weight"></span>kg
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="abilities">
+                      <h3>Abilities</h3>
+                      <ul class="ability-list"></ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
