@@ -1,6 +1,6 @@
 .loading-message-area {
   p {
-    color: #fff !important;
+    color: $text-color;
   }
   .lds-dual-ring {
     display: inline-block;
@@ -13,8 +13,8 @@
       height: 64px;
       margin: 8px;
       border-radius: 50%;
-      border: 6px solid #fff;
-      border-color: #fff transparent #fff transparent;
+      border: 6px solid $text-color;
+      border-color: $text-color transparent $text-color transparent;
       animation: lds-dual-ring 1.2s linear infinite;
     }
   }

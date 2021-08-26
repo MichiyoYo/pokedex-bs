@@ -86,26 +86,78 @@ main {
         background: #9857ff;
         border-bottom: 0;
         border-top-left-radius: 50px;
+        padding-bottom: 20%;
+        @include responsive-for("small") {
+          flex-wrap: wrap;
+        }
         .modal-title {
           padding: 0 28px;
           font-size: 40px;
+        }
+        .types {
+          flex: 1 1 100px;
+          @include responsive-for("small") {
+            order: 3;
+          }
+          .type-list {
+            align-content: space-between;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 0;
+            @include responsive-for("small") {
+              justify-content: flex-start;
+              padding-left: 28px;
+            }
+            li {
+              margin-right: 10px;
+              padding: 5px 15px;
+              background: #591bb9;
+              color: #ffff;
+              border-radius: 20px;
+            }
+          }
         }
         .close {
           background: transparent;
           color: #fff;
           border: 0;
           padding: 10px 20px;
+          @include responsive-for("small") {
+            order: 2;
+          }
         }
       }
       .modal-body {
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
         border-bottom-right-radius: 50px;
+        background-color: #fff;
+        padding: 33px;
+        box-shadow: 0px -4px 6px #341b5a3b;
         .pokemon-img {
           max-width: 50%;
           padding: 20px;
+          margin-top: -33%;
+          @include responsive-for("small") {
+            padding: 20px 0;
+          }
         }
         .pokemon-details {
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          grid-gap: 20px;
+          .base-stats,
+          .abilities {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 2px 3px 5px #88888830;
+            flex: 1 1 auto;
+            @include responsive-for("small") {
+              flex: 1 1 100%;
+            }
+          }
           h3,
           p,
           li {

@@ -62,9 +62,6 @@
     <main class="container-fluid">
       <div class="row justify-content-center">
         <div class="col-md-4 col-sm-12 text-center">
-          <div class="loading-message-area text-center mb-40 hide">
-            <div class="lds-dual-ring"></div>
-          </div>
           <div class="search-box-wrapper mb-40">
             <form class="form-inline form-row align-items-center my-2 my-lg-0">
               <div class="col-sm-12">
@@ -93,6 +90,9 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h3 class="modal-title" id="pokemon-title">Bulbasaur</h3>
+                  <div class="types">
+                    <ul class="type-list"></ul>
+                  </div>
                   <button
                     type="button"
                     class="modal-close close"
@@ -103,6 +103,9 @@
                   </button>
                 </div>
                 <div class="modal-body">
+                  <div class="loading-message-area text-center mb-40 hide">
+                    <div class="lds-dual-ring"></div>
+                  </div>
                   <img
                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
                     alt="Bulbasaur"
@@ -120,10 +123,7 @@
                         </li>
                       </ul>
                     </div>
-                    <div class="types">
-                      <h3>Types</h3>
-                      <ul class="type-list"></ul>
-                    </div>
+
                     <div class="abilities">
                       <h3>Abilities</h3>
                       <ul class="ability-list"></ul>
