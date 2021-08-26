@@ -28,6 +28,7 @@ let pokemonRepository = (function () {
     //create a list item
     let listItem = $("<li></li>");
     listItem.addClass("list-group-item");
+    listItem.attr("data-search-term", pokemon.name.toLowerCase());
     //create a button
     let button = $(
       `<button 
@@ -176,8 +177,6 @@ let pokemonRepository = (function () {
     });
   }
 
-  $("#search-input").on("input", searchPokemon);
-
   return {
     getAll,
     add,
@@ -195,5 +194,22 @@ pokemonRepository.loadList().then(function () {
   //data is loaded into pokemon pokemonList array
   pokemonRepository.getAll().forEach((pokemon) => {
     pokemonRepository.addListItem(pokemon);
+  });
+});
+
+$(document).ready(function () {
+  //live search
+  $("#search-input").on("keyup", function () {
+    var searchTerm = $(this).val().toLowerCase();
+    $(".pokemon-list li").each(function () {
+      if (
+        $(this).filter("[data-search-term *= " + searchTerm + "]").length > 0 ||
+        searchTerm.length < 1
+      ) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
   });
 });
