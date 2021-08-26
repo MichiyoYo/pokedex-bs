@@ -4,7 +4,6 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
   const apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  const modalContainer = $("#modal-container");
 
   //add adds the pokemon passed as argument to the end of the pokemonList
   function add(pokemon) {
