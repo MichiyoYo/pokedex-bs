@@ -1139,6 +1139,16 @@ main .modal .modal-content .modal-body .pokemon-details .abilities {
   }
 }
 
+main .modal .modal-content .modal-body .pokemon-details .base-stats h3,
+main .modal .modal-content .modal-body .pokemon-details .abilities h3 {
+  color: #610cea;
+}
+
+main .modal .modal-content .modal-body .pokemon-details .abilities .ability-list li {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
 main .modal .modal-content .modal-body .pokemon-details h3,
 main .modal .modal-content .modal-body .pokemon-details p,
 main .modal .modal-content .modal-body .pokemon-details li {

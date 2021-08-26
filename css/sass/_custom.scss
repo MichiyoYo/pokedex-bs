@@ -157,6 +157,17 @@ main {
             @include responsive-for("small") {
               flex: 1 1 100%;
             }
+            h3 {
+              color: $purple;
+            }
+          }
+          .abilities {
+            .ability-list {
+              li {
+                font-weight: 600;
+                text-transform: capitalize;
+              }
+            }
           }
           h3,
           p,

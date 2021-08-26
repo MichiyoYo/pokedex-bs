@@ -46,11 +46,7 @@ let pokemonRepository = (function () {
     showOnClick(button, pokemon);
   }
 
-  //searchPokemon filters the pokemonList, searching by name
-  function searchPokemon(nameToSearch) {
-    return pokemonList.filter((pokemon) => pokemon.name.includes(nameToSearch));
-  }
-
+  //loadList fetches the list of pokemons from the API url
   function loadList() {
     showLoadingMessage();
     return fetch(apiUrl)
@@ -75,6 +71,8 @@ let pokemonRepository = (function () {
       });
   }
 
+  //loadDetails fetches the list of details from the detailsUrl associated with each pokemon
+  //This function is called after clicking on the pokemon we want to know the details of.
   function loadDetails(item) {
     showLoadingMessage();
     let url = item.detailsUrl;
@@ -99,8 +97,8 @@ let pokemonRepository = (function () {
       });
   }
 
-  //event handler function that prints the clicked pokemon's name to the console
-  //the pokemon argument is actually the event object
+  //showDetails loads the details of the pokemon passed as argument
+  //Once loaded, the pokemon object is used to populate the modal fields
   function showDetails(pokemonToShow) {
     pokemonRepository.loadDetails(pokemonToShow).then(function () {
       populateModal(pokemonToShow);
@@ -113,29 +111,30 @@ let pokemonRepository = (function () {
       loadingMessageArea.removeClass("hide");
       let message = $('<p class="loading-msg"></p>');
       message.text("Please wait, gotta fetch 'em all ...");
-      loadingMessageArea.append(message);
+      $(".loading-message-wrapper").append(message);
     }
   }
 
   function hideLoadingMessage() {
-    const loadingMessageArea = document.querySelector(".loading-message-area");
-    if (!loadingMessageArea.classList.contains("hide")) {
-      loadingMessageArea.classList.add("hide");
+    const loadingMessageArea = $(".loading-message-area");
+    if (!loadingMessageArea.hasClass("hide")) {
+      loadingMessageArea.addClass("hide");
       //remove the message
-      let message = document.querySelector(".loading-msg");
-      loadingMessageArea.removeChild(message);
+      $(".loading-message-wrapper").empty();
     }
   }
 
+  //populateModal used the pokemon object passed as argument to populate the content of
+  //the modal that pops up after clicking on a pokemon from the pokemon repository
   function populateModal(pokemonToShow) {
     //populating name
     let pokemonName = $("#pokemon-title");
     pokemonName.text(pokemonToShow.name);
 
-    //populating types
     let pokemonTypes = $(".type-list");
     //remove previous types if any
     pokemonTypes.text("");
+    //populating types
     pokemonToShow.types.forEach((type) => {
       console.log(type.type.name);
       let listItem = $(`<li>${type.type.name}</li>`);
@@ -167,9 +166,6 @@ let pokemonRepository = (function () {
     });
   }
 
-  //event listeners
-
-  //addEvent takes care of binding the click event with the event handler
   function showOnClick(button, pokemon) {
     button.on("click", function (event) {
       showDetails(pokemon);
@@ -179,7 +175,6 @@ let pokemonRepository = (function () {
   return {
     getAll,
     add,
-    searchPokemon,
     addListItem,
     loadList,
     loadDetails,
