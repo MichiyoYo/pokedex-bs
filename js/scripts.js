@@ -30,10 +30,13 @@ let pokemonRepository = (function () {
     listItem.addClass("list-group-item");
     //create a button
     let button = $(
-      '<button class="pokemon-button btn glow-on-hover"></button>'
+      `<button 
+        class="pokemon-button btn glow-on-hover"
+        type="button"
+        data-toggle="modal"
+        data-target="#modal-container"
+      >${pokemon.name}</button>`
     );
-    //change the button text to the current pokemon name
-    button.text(pokemon.name);
 
     //append the button to the list item
     listItem.append(button);
@@ -105,13 +108,12 @@ let pokemonRepository = (function () {
   }
 
   function showLoadingMessage() {
-    const loadingMessageArea = document.querySelector(".loading-message-area");
-    if (loadingMessageArea.classList.contains("hide")) {
-      loadingMessageArea.classList.remove("hide");
-      let message = document.createElement("p");
-      message.classList.add("loading-msg");
-      message.innerText = "Please wait, gotta fetch 'em all ...";
-      loadingMessageArea.appendChild(message);
+    const loadingMessageArea = $(".loading-message-area");
+    if (loadingMessageArea.hasClass("hide")) {
+      loadingMessageArea.removeClass("hide");
+      let message = $('<p class="loading-msg"></p>');
+      message.text("Please wait, gotta fetch 'em all ...");
+      loadingMessageArea.append(message);
     }
   }
 
@@ -131,7 +133,7 @@ let pokemonRepository = (function () {
     pokemonName.text(pokemonToShow.name);
 
     //populating types
-    let pokemonTypes = $(".types");
+    let pokemonTypes = $(".type-list");
     //remove previous types if any
     pokemonTypes.text("");
     pokemonToShow.types.forEach((type) => {
@@ -163,11 +165,6 @@ let pokemonRepository = (function () {
       let abilityItem = $(`<li>${ability.ability.name}</li>`);
       abilityList.append(abilityItem);
     });
-
-    if (modalContainer.hasClass("is-not-visible")) {
-      modalContainer.removeClass("is-not-visible");
-    }
-    modalContainer.addClass("is-visible");
   }
 
   //event listeners
@@ -178,6 +175,8 @@ let pokemonRepository = (function () {
       showDetails(pokemon);
     });
   }
+
+  $("#search-input").on("input", searchPokemon);
 
   return {
     getAll,
