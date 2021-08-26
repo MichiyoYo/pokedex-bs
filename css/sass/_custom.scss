@@ -68,6 +68,15 @@
 }
 
 main {
+  .list-group {
+    .list-group-item {
+      background-color: #fff0;
+      border: 0;
+      .btn {
+        width: 100%;
+      }
+    }
+  }
   .modal {
     .modal-header {
       .close {

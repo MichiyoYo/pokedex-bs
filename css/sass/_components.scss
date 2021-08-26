@@ -1,0 +1,52 @@
+.loading-message-area {
+  p {
+    color: #fff !important;
+  }
+  .lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    &:after {
+      content: " ";
+      display: block;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      border-color: #fff transparent #fff transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+  }
+}
+
+.pokemon-list {
+  text-align: center;
+  // padding: 35px 60px;
+  background: #ffffff57;
+  border-radius: 0;
+  max-height: 700px;
+  display: flex;
+  grid-row-gap: 10px;
+  padding: 20px;
+  max-height: 700px;
+  overflow: scroll;
+
+  li {
+    flex: 1 1 auto;
+    .pokemon-btn {
+      width: 100%;
+      background: #fff;
+      color: $btn-text-color;
+      padding: 14px 18px;
+      cursor: pointer;
+      border-radius: 0;
+      width: 220px;
+      height: 50px;
+      border: none;
+      outline: none;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+  }
+}

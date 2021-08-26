@@ -47,7 +47,7 @@
               <input
                 class="form-control mr-sm-2"
                 type="search"
-                placeholder="Look them up"
+                placeholder="Look 'em up"
                 aria-label="Search"
               />
             </div>
@@ -77,22 +77,27 @@
     </header>
     <main class="container-fluid">
       <div class="row justify-content-center">
-        <div class="col-md-8 col-sm-12 text-center">
-          <h1>Hey</h1>
+        <div class="col-md-4 col-sm-12 text-center">
+          <!-- <h1>Hey</h1>
           <p>This is text</p>
           <button
             type="button"
             class="btn btn-primary"
             data-toggle="modal"
-            data-target="#exampleModal"
+            data-target="#modal-container"
           >
             Launch demo modal
-          </button>
+          </button> -->
+
+          <div class="loading-message-area text-center mb-40 hide">
+            <div class="lds-dual-ring"></div>
+          </div>
+          <ul class="pokemon-list list-unstyled list-group"></ul>
 
           <!-- Modal -->
           <div
             class="modal fade"
-            id="exampleModal"
+            id="modal-container"
             tabindex="-1"
             role="dialog"
             aria-labelledby="exampleModalLabel"
