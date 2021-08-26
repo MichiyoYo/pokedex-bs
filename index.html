@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="./favicon32x32.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.min.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/som3svg.css" />
+    <title>PokeDex | Gotta Catch 'Em All!</title>
+  </head>
+  <body class="gradient-bg d-flex justify-content-between flex-column">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <a class="navbar-brand" href="/">
+          <img
+            src="./img/pokedex-logo.png"
+            class="d-inline-block align-top mr-10"
+            alt="PokeDex logo"
+          />
+          <h1 class="d-inline-block">PokeDex</h1></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <form class="form-inline form-row align-items-center my-2 my-lg-0">
+            <div class="col-md-6 2 mr-10">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Look them up"
+                aria-label="Search"
+              />
+            </div>
+            <div class="col-md-2 d-inline-block">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                Search
+              </button>
+            </div>
+          </form>
+
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                target="_blank"
+                href="https://pokeapi.co/"
+                tabindex="-1"
+                >PokeAPI</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12 text-center">
+          <h1>Hey</h1>
+          <p>This is text</p>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            Launch demo modal
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Bulbasaur</h5>
+                  <button
+                    type="button"
+                    class="modal-close close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">✖</span>
+                  </button>
+                </div>
+                <div class="modal-body">Bulbasaur details</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container-fluid">
+      <div class="row footer text-center">
+        <div class="col">
+          <p>
+            Coded and designed by
+            <a href="https://cristinalester.rocks" target="_blank"
+              >Cristina Lester</a
+            >
+            using
+            <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>.<br />All
+            content is © Nintendo, Game Freak, and The Pokémon Company.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="./js/polyfill.min.js"></script>
+    <script src="./js/fetch.umd.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>
