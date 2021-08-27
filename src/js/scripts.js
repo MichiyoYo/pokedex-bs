@@ -1,6 +1,4 @@
-// IIFE function to make the data structure private.
-// It returns an object which contains references to the functions to manipulate the data structure.
-// The data structure remains "private" i.e. not directly accessible from the global environment.
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 let pokemonRepository = (function () {
   let pokemonList = [];
   const apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
@@ -136,7 +134,6 @@ let pokemonRepository = (function () {
     pokemonTypes.text("");
     //populating types
     pokemonToShow.types.forEach((type) => {
-      console.log(type.type.name);
       let listItem = $(`<li>${type.type.name}</li>`);
       pokemonTypes.append(listItem);
     });
@@ -160,14 +157,13 @@ let pokemonRepository = (function () {
     abilityList.html("");
 
     pokemonToShow.abilities.forEach((ability) => {
-      console.log(ability.ability.name);
       let abilityItem = $(`<li>${ability.ability.name}</li>`);
       abilityList.append(abilityItem);
     });
   }
 
   function showOnClick(button, pokemon) {
-    button.on("click", function (event) {
+    button.on("click", function () {
       showDetails(pokemon);
     });
   }
