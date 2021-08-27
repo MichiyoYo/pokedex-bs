@@ -3,7 +3,10 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   const apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
-  //add adds the pokemon passed as argument to the end of the pokemonList
+  /**
+   * The function add() adds the pokemon passed as argument to the pokemonList array
+   * @param {*} pokemon the pokemon object to add to the repository
+   */
   function add(pokemon) {
     if (typeof pokemon === "object" && "name" in pokemon) {
       pokemonList.push(pokemon);
@@ -12,13 +15,18 @@ let pokemonRepository = (function () {
     }
   }
 
-  //getAll returns the pokemonList array
+  /**
+   * getAll returns the pokemonList array
+   */
   function getAll() {
     return pokemonList;
   }
 
-  //addListItem adds a list item to the list passed as second argument
-  //The list item will contain a button which text is the pokemon name passed as first argument
+  /**
+   * The function addListItem adds a list element to the unordered list alredy present in the DOM.
+   * The list item will contain a button which text is the pokemon name passed as first argument.
+   * @param {*} pokemon the pokemon object to add to the unordered list
+   */
   function addListItem(pokemon) {
     //select the list to populate
     const pokemonCollection = $(".pokemon-list");
@@ -35,7 +43,6 @@ let pokemonRepository = (function () {
         data-target="#modal-container"
       >${pokemon.name}</button>`
     );
-
     //append the button to the list item
     listItem.append(button);
     //append the list item to the list
@@ -44,7 +51,10 @@ let pokemonRepository = (function () {
     showOnClick(button, pokemon);
   }
 
-  //loadList fetches the list of pokemons from the API url
+  /**
+   * The function loadList fetches the list of pokemons from the API url
+   * @returns a promise which will resolve into a response object, parsed to json, or rejected
+   */
   function loadList() {
     showLoadingMessage();
     return fetch(apiUrl)
@@ -69,8 +79,12 @@ let pokemonRepository = (function () {
       });
   }
 
-  //loadDetails fetches the list of details from the detailsUrl associated with each pokemon
-  //This function is called after clicking on the pokemon we want to know the details of.
+  /**
+   * loadDetails fetches the list of details from the detailsUrl associated with each pokemon.
+   * This function is called after clicking on the pokemon we want to know the details of.
+   * @param {*} item the pokemon we want to retrieve the details of.
+   * @returns a promise which will resolve into a response object, or rejected.
+   */
   function loadDetails(item) {
     showLoadingMessage();
     let url = item.detailsUrl;
@@ -95,14 +109,20 @@ let pokemonRepository = (function () {
       });
   }
 
-  //showDetails loads the details of the pokemon passed as argument
-  //Once loaded, the pokemon object is used to populate the modal fields
+  /**
+   * The function showDetails loads the details of the pokemon passed as argument.
+   * Once loaded, the pokemon object is used to populate the modal's content.
+   * @param {*} pokemonToShow the pokemon object we want to show the modal for.
+   */
   function showDetails(pokemonToShow) {
     pokemonRepository.loadDetails(pokemonToShow).then(function () {
       populateModal(pokemonToShow);
     });
   }
 
+  /**
+   * showLoadingMessage shows a loading message on the DOM.
+   */
   function showLoadingMessage() {
     const loadingMessageArea = $(".loading-message-area");
     if (loadingMessageArea.hasClass("hide")) {
@@ -113,6 +133,9 @@ let pokemonRepository = (function () {
     }
   }
 
+  /**
+   * hideLoadingMessage hides a loading message from the DOM.
+   */
   function hideLoadingMessage() {
     const loadingMessageArea = $(".loading-message-area");
     if (!loadingMessageArea.hasClass("hide")) {
@@ -122,8 +145,11 @@ let pokemonRepository = (function () {
     }
   }
 
-  //populateModal used the pokemon object passed as argument to populate the content of
-  //the modal that pops up after clicking on a pokemon from the pokemon repository
+  /**
+   * The function populateModal used the pokemon object passed as argument to populate the content
+   * of the modal that pops up after clicking on a pokemon from the pokemon repository list
+   * @param {*} pokemonToShow the pokemon object we want to show the details of
+   */
   function populateModal(pokemonToShow) {
     //populating name
     let pokemonName = $("#pokemon-title");
@@ -162,6 +188,11 @@ let pokemonRepository = (function () {
     });
   }
 
+  /**
+   * showOnClick() binds the click on the button with the pokemon object passed as argument
+   * @param {*} button the button clicked
+   * @param {*} pokemon the pokemon object to show
+   */
   function showOnClick(button, pokemon) {
     button.on("click", function () {
       showDetails(pokemon);
@@ -187,7 +218,7 @@ pokemonRepository.loadList().then(function () {
   });
 });
 
-$(document).ready(function () {
+function main() {
   //live search
   $("#search-input").on("keyup", function () {
     var searchTerm = $(this).val().toLowerCase();
@@ -202,4 +233,6 @@ $(document).ready(function () {
       }
     });
   });
-});
+}
+
+main();
