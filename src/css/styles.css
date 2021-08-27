@@ -908,6 +908,7 @@ ul {
 
 .navbar .navbar-brand h1 {
   margin-bottom: 0;
+  color: #fff;
 }
 
 @media (max-width: 768px) {

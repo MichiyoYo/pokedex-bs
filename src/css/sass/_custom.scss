@@ -17,6 +17,7 @@
 
     h1 {
       margin-bottom: 0;
+      color: #fff;
       @include responsive-for("small") {
         font-size: 40px;
       }
