@@ -4,7 +4,7 @@ PokeDex is a small web application built with HTML, CSS, and JavaScript that loa
 
 Check out the [live demo](https://michiyoyo.github.io/pokedex-bs/)
 
-## Tech stack:
+## Tech stack
 
 This version has been implemented using Bootstrap and jQuery.
 
